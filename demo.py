@@ -6,7 +6,8 @@ headers = {"Authorization": "Bearer sk-cbe6d81da0c64c26ab309c07d0a6939d"}
 questions = json.load(open("questions.json",encoding='utf-8'))   # ①从文件读问题
 results = []
 
-for i, q in enumerate(questions):               # ②批量循环
+for i, item in enumerate(questions):               # ②批量循环
+    q = item["question"]
     payload = {
         "model": "deepseek-chat",
         "messages": [{"role": "user", "content": q}],
