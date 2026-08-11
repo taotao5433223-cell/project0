@@ -29,7 +29,7 @@ def run_batch(questions):
         results.append({
             "id": item["id"],
             "question": item["question"],
-            answer: answer,
+            "answer": answer,
             "status": status,
             "cost": cost
         })
@@ -46,5 +46,5 @@ if __name__ == "__main__":
     questions = load_question()
     answers = run_batch(questions)
     save_results(answers)
-    failed = [r for r in answers if answers["status"] == "failed"]
+    failed = [r for r in answers if r["status"] == "failed"]
     print(f"完成。成功 {len(answers) - len(failed)} 条，失败 {len(failed)} 条")
