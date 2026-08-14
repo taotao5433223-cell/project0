@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "question": "什么是大模型"
+  },
+  {
+    "id": 2,
+    "question": "什么是AI"
+  },
+  {
+    "id": 3,
+    "question": "大模型和AI的区别是什么"
+  },
+  {
+    "id": 4,
+    "question": "agent是什么"
+  },
+  {
+    "id": 5,
+    "question": "什么是skill"
+  },
+  {
+    "id": 6,
+    "question": "RAG是什么"
+  },
+  {
+    "id": 7,
+    "question": "agent和skill的关系是什么"
+  },
+  {
+    "id": 8,
+    "question": "agent和RAG的关系是什么"
+  },
+  {
+    "id": 9,
+    "question": "agent、skill、RAG之间的关系是什么"
+  },
+  {
+    "id": 10,
+    "question": "什么是大模型幻视觉"
+  }
+  ]

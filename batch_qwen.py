@@ -13,7 +13,8 @@ def get_questions(path="questions.json"):
 def call_api(question, max_try=3):
     payload = {
         "model":config.MODEL,
-        "messages":[{"role":"user","content":question}]
+        "messages":[{"role":"user","content":question}],
+        "temperature":0
     }
     for attempt in range(1, max_try+1):
         try:
@@ -43,7 +44,7 @@ def run_batch(questions):
     return results
 
 def save_results(results):
-    with open("results_temp.json", "w", encoding="utf-8") as f:
+    with open("results_qwen.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
