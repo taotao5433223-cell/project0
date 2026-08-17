@@ -29,7 +29,7 @@ def test_save_resultd_file(tmp_path):
         "question": "测试",
         "answer": "回答",
         "status": "ok",
-        "cost": 1.0
+        "cost_time": 1.0
     }]
     out = tmp_path / "r.json"
     save_results(results,out)
