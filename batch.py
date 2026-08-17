@@ -4,6 +4,11 @@ import json, time, requests, config
 def load_question(path="questions.json"):
     return json.load(open(path, encoding="utf-8"))
 
+def parse_answer(resp_answer):
+    if "choices" not in resp_answer:
+        raise KeyError("返回结果里没有 choices，检查API key或返回结构")
+    return resp_answer["choices"][0]["message"]["content"]
+
 def call_api(question, max_retry=3):
     payload = {
         "model": config.MODEL,
@@ -13,7 +18,7 @@ def call_api(question, max_retry=3):
     for attempt in range(1, max_retry + 1):
         try:
             r = requests.post(config.URL, headers={"Authorization": f"Bearer {config.API_KEY}"}, json=payload, timeout=30)
-            return r.json()["choices"][0]["message"]["content"], "ok"
+            return parse_answer(r.json()), "ok"
         except Exception as e:
             print(f"失败第{attempt}次：{e}")
             time.sleep(2 * attempt)
